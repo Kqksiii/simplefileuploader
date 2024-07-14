@@ -1,0 +1,112 @@
+<div id="laaa">
+        <label for="usernameField" class="usernamelabel label"></label>
+        <input type="password" placeholder="Old Password" id="usernameField" name="oldpassField" class="passField" required="required">
+        <label for="usernameField" class="usernamelabel label"></label>
+        <input type="password" placeholder="New Password" id="usernameField" name="newpassField" class="passField" required="required">
+        <br /> 
+        <button onclick="searchURL()" class="animated-button" >
+            <span>Change Password</span>
+            <span></span>
+        </button>
+    </div>
+    <script>
+    let url = location.href;
+          function searchURL(){
+            
+            let oldpass = document.getElementsByName('oldpassField')[0].value;
+            let newpass = document.getElementsByName('newpassField')[0].value;
+    
+            var oldpassdata = btoa(oldpass);
+            var newpassdata = btoa(newpass);
+
+            location.href = "http://192.168.178.99:3000/changepass/" + oldpassdata + "/" + newpassdata + "/" 
+      }
+    </script>
+    <style>
+    
+            .usernamelabel {
+      display: block;
+      color: white;
+      font-size: 14px;
+      padding: 5px 5px;
+    }
+    #laaa{
+        text-align: left;
+      margin: 0 auto;
+    }
+    #usernameField {
+      display: block;
+      width: 200px;
+      height: 40px;
+      background-color: #292929;
+      border-radius: 30px;
+      border: 2px solid #292929;
+      padding: 0px 12px;
+      outline: none;
+      caret-color: rgb(152, 88, 255);
+      color: rgb(212, 212, 212);
+      font-size: 12px;
+      transition-duration: .2s;
+    }
+    body{
+        background-color: #212121;
+        text-align: center;
+    }
+    .animated-button {
+      position: relative;
+      display: inline-block;
+      padding: 12px 24px;
+      border: none;
+      font-size: 16px;
+      background-color: inherit;
+      border-radius: 100px;
+      font-weight: 600;
+      color: #ffffff40;
+      box-shadow: 0 0 0 2px #ffffff20;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .animated-button span:last-child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background-color: #2196F3;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .animated-button span:first-child {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .animated-button:hover {
+      box-shadow: 0 0 0 1px #2195f360;
+      color: #ffffff;
+    }
+    
+    .animated-button:active {
+      scale: 1.25;
+    }
+    
+    .animated-button:hover span:last-child {
+      width: 200px;
+      height: 150px;
+      opacity: 1;
+    }
+    
+    
+    #usernameField:focus,
+    #usernameField:valid {
+      border: 2px solid rgb(152, 88, 255);
+      transition-duration: .2s;
+    }
+    
+    
+        </style>

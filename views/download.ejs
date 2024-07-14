@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="data:;base64,=">
+  <title>Dateiliste <%= dwid %></title>
+</head>
+<body>
+  <h1>Dateiliste</h1>
+  <a href="http://192.168.178.99:3000/dwnfolder<%= dwid %>"<button>Download all files</button></a>
+  <ul>
+    <% if (files && files.length > 0) { %>
+      <% files.forEach(function(file) { %>
+        <li><%= file %></li><a href="http://192.168.178.99:3000/download<%= dwid %>/<%= file%>" <button>Download</button></a>
+      <% }); %>
+    <% } else { %>
+      <p>Keine Dateien gefunden.</p>
+    <% } %>
+  </ul>
+</body>
+</html>
